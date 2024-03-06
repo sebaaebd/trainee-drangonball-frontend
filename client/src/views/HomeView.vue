@@ -1,9 +1,16 @@
 <template>
   <div class="flex flex-col items-center">
-    <HeaderPage :terminoBusqueda="terminoBusqueda" @update:terminoBusqueda="terminoBusqueda = $event" />
+
+    <HeaderPage 
+      :terminoBusqueda="terminoBusqueda" 
+      @update:terminoBusqueda="terminoBusqueda = $event" 
+      @update:selectedUniverso="selectedUniverso = $event"
+    />
+
     <div class="bg-bodyView bg-opacity-80 max-w-screen-xl mx-auto px-4 p-10 mt-20 mb-20 rounded-lg shadow-md flex flex-wrap justify-center"> 
       <TarjetaPersonaje v-for="personaje in personajesFiltrados" :key="personaje.ID" :personaje="personaje" @click="irADetalle(personaje.ID)"/>
     </div>
+
   </div>
 </template>
 
@@ -21,7 +28,8 @@ components: {
 data() {
   return {
     personajes: [],
-    terminoBusqueda: ''
+    terminoBusqueda: '',
+    selectedUniverso: ''
   };
 },
 async mounted() {
@@ -29,14 +37,18 @@ async mounted() {
 },
 computed: {
   personajesFiltrados() {
-    if (!this.terminoBusqueda) {
-      return this.personajes;
-    } else {
-      return this.personajes.filter(personaje =>
+    let filtered = this.personajes;
+    if (this.terminoBusqueda) {
+      filtered = filtered.filter(personaje =>
         personaje.NOMBRE.toLowerCase().includes(this.terminoBusqueda.toLowerCase())
-        
       );
     }
+    if (this.selectedUniverso && this.selectedUniverso !== 'todos') {
+      filtered = filtered.filter(personaje =>
+        personaje.UNIVERSO.toLowerCase() === this.selectedUniverso.toLowerCase()
+      );
+    }
+    return filtered;
   }
 },
 methods: {
@@ -50,7 +62,6 @@ methods: {
 },
 
 }
-
 </script>
 
 

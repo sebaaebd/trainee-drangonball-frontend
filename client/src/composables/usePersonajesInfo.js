@@ -38,7 +38,7 @@ import axios from 'axios';
 export const  getPersonajes = async  () => {
   try {
     // Realiza la solicitud GET al endpoint usando Axios
-    const response = await axios.get('https://mocki.io/v1/ecfb0cb4-33e4-4ea3-9363-87db87efc672');
+    const response = await axios.get('http://pruebaapi.myddns.me/public/personajes');
 
     const data = response.data
 

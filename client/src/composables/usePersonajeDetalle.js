@@ -1,6 +1,6 @@
 export async function loadPersonaje(ID) {
   try {
-    const response = await fetch(`https://api.ejemplo.com/personajes/${ID}`);
+    const response = await fetch(`http://pruebaapi.myddns.me/public/tarjeta/${ID}`);
     if (!response.ok) {
       throw new Error('Error al obtener los detalles del personaje');
     }

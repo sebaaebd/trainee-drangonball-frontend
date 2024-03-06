@@ -6,7 +6,7 @@ import axios from 'axios';
 export const  getUniversos = async  () => {
   try {
     // Realiza la solicitud GET al endpoint usando Axios
-    const response = await axios.get('https://mocki.io/v1/e192a42e-eb42-465a-a0be-8cb84f905a72');
+    const response = await axios.get('http://pruebaapi.myddns.me/public/listaUniversos');
 
     const data = response.data
 
