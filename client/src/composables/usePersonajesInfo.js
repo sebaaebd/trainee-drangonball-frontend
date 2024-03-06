@@ -1,15 +1,17 @@
 // Este archivo se encarga de realizar la conexión a la API y obtener los datos de los usuarios
 
-/** export const getPersonajes = async () => {
+/**
+export const getPersonajes = async () => {
   try {
     const options = {
       method: 'GET', 
       headers: {
-        'Content-Type': 'application/json' 
+        'ngrok-skip-browser-warning': 'cualquier-valor-aqui',
+        'Content-Type': 'application/json',
       }
     };
 
-    const response = await fetch('https://d015-191-114-146-160.ngrok-free.app/personajes', options);
+    const response = await fetch('https://mocki.io/v1/ecfb0cb4-33e4-4ea3-9363-87db87efc672', options);
     if (!response.ok) {
       throw new Error('Error al obtener los personajes');
     }
@@ -25,7 +27,10 @@
     console.error('Error al obtener los personajes:', error);
     return [];
   }
-}*/
+}
+*/
+
+
 
 import axios from 'axios';
 
@@ -33,7 +38,7 @@ import axios from 'axios';
 export const  getPersonajes = async  () => {
   try {
     // Realiza la solicitud GET al endpoint usando Axios
-    const response = await axios.get('https://mocki.io/v1/6a9db484-e61c-42cc-ad19-a44a185a2e9b');
+    const response = await axios.get('https://mocki.io/v1/ecfb0cb4-33e4-4ea3-9363-87db87efc672');
 
     const data = response.data
 
@@ -47,4 +52,3 @@ export const  getPersonajes = async  () => {
     return [];
   }
 }
-

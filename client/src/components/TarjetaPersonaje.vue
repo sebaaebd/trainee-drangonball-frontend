@@ -14,7 +14,7 @@
 export default {
   props: {
     personaje: {
-      type: Object,
+      type: String,
       required: true
     }
   }
