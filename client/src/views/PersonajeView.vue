@@ -20,14 +20,14 @@
 
     <!-- Contenedor para los detalles del personaje -->
     <div class="flex flex-col items-center">
-      <h4 class="py-1 text-white font-bold">Nombre: {{ personaje.NOMBRE }}</h4>
-      <h2 class="py-1 text-white font-semibold">Descripcion: {{ personaje.DESCRIPCION }}</h2>
-      <h2 class="py-1 text-white font-semibold">Raza: {{ personaje.RAZA }}</h2>
-      <h2 class="py-1 text-white font-semibold">Universo: {{ personaje.UNIVERSO }}</h2>
-      <h2 class="py-1 text-white font-semibold">Poderes: {{ personaje.PODERES }}</h2>
-    </div>
-    <!-- Biografía del personaje -->
-    <p class="text-base leading-7 text-white text-justify font-semibold ">Biografia: {{ personaje.BIOGRAFIA }}</p>
+  <h4 class="py-1 text-white"><span class="font-bold">Nombre:</span> {{ personaje.NOMBRE }}</h4>
+  <h2 class="py-1 text-white"><span class="font-bold">Descripcion:</span> {{ personaje.DESCRIPCION }}</h2>
+  <h2 class="py-1 text-white"><span class="font-bold">Raza:</span> {{ personaje.RAZA }}</h2>
+  <h2 class="py-1 text-white"><span class="font-bold">Universo:</span> {{ personaje.UNIVERSO }}</h2>
+  <h2 class="py-1 text-white"><span class="font-bold">Poderes:</span> {{ personaje.PODERES }}</h2>
+</div>
+<!-- Biografía del personaje -->
+<p class="text-base leading-7 text-white text-justify"><span class="font-semibold">Biografia:</span> {{ personaje.BIOGRAFIA }}</p>
     <div v-if="isLoading" class="loader">Cargando...</div>
   </div>
 </template>
