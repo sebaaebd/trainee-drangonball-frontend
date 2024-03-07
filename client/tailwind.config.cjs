@@ -5,8 +5,8 @@ export default {
     extend: {},
     colors: {
       bodyView: '#353535',
-      bodyTarjeta: '#D35600',
-      bodyTarjetaHover: '#FF781C',
+      bodyTarjeta: '#DF6714',
+      bodyTarjetaHover: '#FF7F28',
       botonSearch: '#0003E5',
       botonSearchHover: '#0003FF',
       placeHolderText: '#FFFFFF',

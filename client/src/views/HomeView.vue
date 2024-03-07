@@ -1,13 +1,17 @@
 <template>
+  <!-- Contenedor principal -->
   <div class="flex flex-col items-center">
 
+    <!-- Componente de encabezado de la página -->
     <HeaderPage 
       :terminoBusqueda="terminoBusqueda" 
       @update:terminoBusqueda="terminoBusqueda = $event" 
       @update:selectedUniverso="selectedUniverso = $event"
     />
 
-    <div class="bg-bodyView bg-opacity-80 max-w-screen-xl mx-auto px-4 p-10 mt-20 mb-20 rounded-lg shadow-md flex flex-wrap justify-center"> 
+    <!-- Contenedor de tarjetas de personajes -->
+    <div class="bg-bodyView bg-opacity-80 mx-auto px-4 p-10 mt-5 mb-20 rounded-lg shadow-md flex flex-wrap justify-center w-9/12 sm:w-9/10 md:max-w-screen-xl lg:w-3/4 xl:w-10/12"> 
+      <!-- Iteración sobre cada personaje filtrado y creación de una tarjeta de personaje para cada uno -->
       <TarjetaPersonaje v-for="personaje in personajesFiltrados" :key="personaje.ID" :personaje="personaje" @click="irADetalle(personaje.ID)"/>
     </div>
 
