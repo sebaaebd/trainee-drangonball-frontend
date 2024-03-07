@@ -14,7 +14,7 @@
       </div>
       <!-- Imagen del personaje -->
       <div class="flex justify-center">
-        <img :src="personaje.IMAGEN" alt="Imagen de {{ personaje.NOMBRE }}" class="w-50 h-32 object-cover rounded-lg">
+        <img :src="personaje.IMAGEN" alt="Imagen de {{ personaje.NOMBRE }}" class="w-60 h-50 object-cover rounded-lg">
       </div>
     </div>
 
@@ -28,6 +28,7 @@
     </div>
     <!-- Biografía del personaje -->
     <p class="text-base leading-7 text-white text-justify font-semibold ">Biografia: {{ personaje.BIOGRAFIA }}</p>
+    <div v-if="isLoading" class="loader">Cargando...</div>
   </div>
 </template>
 
@@ -39,7 +40,8 @@ export default {
   data() {
     return {
       // Inicialización del objeto personaje
-      personaje: {}
+      personaje: {},
+      isLoading:false,
     };
   },
   methods: {
@@ -60,9 +62,10 @@ export default {
   },
   // Cuando se monta el componente, se cargan los detalles del personaje
   mounted() {
+    this.isLoading = true;
     const ID = this.$route.params.ID;
     this.cargarDetallesPersonaje(ID);
-    console.log(ID)
+    this.isLoading = false;
   }
 };
 </script>

@@ -7,13 +7,13 @@
             @update:terminoBusqueda="terminoBusqueda = $event" 
             @update:selectedUniverso="selectedUniverso = $event"
           />
-
     <!-- Contenedor de tarjetas de personajes -->
     <div class="bg-bodyView bg-opacity-80 mx-auto px-4 p-10 mt-5 mb-20 rounded-lg shadow-md flex flex-wrap justify-center w-9/12 sm:w-9/10 md:max-w-screen-xl lg:w-3/4 xl:w-10/12"> 
+      <div v-if="isLoading" class="loader text-placeHolderText">Cargando...</div>
       <!-- Iteración sobre cada personaje filtrado y creación de una tarjeta de personaje para cada uno -->
       <TarjetaPersonaje v-for="personaje in personajesFiltrados" :key="personaje.ID" :personaje="personaje" @click="irADetalle(personaje.ID)"/>
+      <div v-if="personajesFiltrados.length === 0" class="text-placeHolderText">No se encontraron personajes</div>
     </div>
-
   </div>
 </template>
 
@@ -35,13 +35,16 @@ export default {
     return {
       personajes: [], // Array para almacenar los personajes
       terminoBusqueda: '', // Término de búsqueda para filtrar personajes
-      selectedUniverso: '' // Universo seleccionado para filtrar personajes
+      selectedUniverso: '', // Universo seleccionado para filtrar personajes,
+      isLoading:false,
     };
   },
   // Función que se ejecuta cuando el componente se monta
   async mounted() {
     // Obtiene los personajes y los almacena en el array personajes
+    this.isLoading = true;
     this.personajes = await getPersonajes();
+    this.isLoading = false;
   },
   // Propiedades computadas
   computed: {
