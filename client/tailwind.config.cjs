@@ -6,7 +6,7 @@ export default {
     colors: {
       bodyView: '#353535',
       bodyTarjeta: '#DF6714',
-      bodyTarjetaHover: '#FF7F28',
+      bodyTarjetaHover: '#FF8A3A',
       botonSearch: '#0003E5',
       botonSearchHover: '#0003FF',
       placeHolderText: '#FFFFFF',

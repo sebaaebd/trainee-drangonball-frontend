@@ -8,7 +8,7 @@
       <!-- Muestra el nombre del personaje -->
       <h4 class="py-2 text-white font-bold">{{ personaje.NOMBRE }}</h4>
       <!-- Muestra la descripción del personaje -->
-      <p class="text-base leading-7 text-white font-semibold">{{ personaje.DESCRIPCION }}</p>
+      <p class="text-sm h-24 text-white font-semibold">{{ personaje.DESCRIPCION }}</p>
     </div>
   </div>
 </template>
